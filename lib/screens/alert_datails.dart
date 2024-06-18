@@ -1,14 +1,14 @@
 import 'package:brain_box/widgets/alart_container_widget.dart';
 import 'package:flutter/material.dart';
 
-class AlertDatailsScreen extends StatefulWidget {
-  const AlertDatailsScreen({super.key});
+class AlertDatailsView extends StatefulWidget {
+  const AlertDatailsView({super.key});
 
   @override
-  State<AlertDatailsScreen> createState() => _AlertDatailsScreenState();
+  State<AlertDatailsView> createState() => _AlertDatailsViewState();
 }
 
-class _AlertDatailsScreenState extends State<AlertDatailsScreen> {
+class _AlertDatailsViewState extends State<AlertDatailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

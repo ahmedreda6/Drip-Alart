@@ -1,8 +1,8 @@
 import 'package:brain_box/widgets/welcome_custom_button.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+class Welcomeview extends StatelessWidget {
+  const Welcomeview({super.key});
 
   @override
   Widget build(BuildContext context) {

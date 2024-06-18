@@ -2,14 +2,14 @@ import 'package:brain_box/core/helper/snakbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({super.key});
+class ForgotPasswordView extends StatefulWidget {
+  const ForgotPasswordView({super.key});
 
   @override
-  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+  State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   final emailController = TextEditingController();
   @override
   void dispose() {

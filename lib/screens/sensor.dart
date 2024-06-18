@@ -2,14 +2,14 @@ import 'package:brain_box/widgets/sensor_card_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SensorScreen extends StatefulWidget {
-  const SensorScreen({super.key});
+class SensorView extends StatefulWidget {
+  const SensorView({super.key});
 
   @override
-  State<SensorScreen> createState() => _SensorScreenState();
+  State<SensorView> createState() => _SensorViewState();
 }
 
-class _SensorScreenState extends State<SensorScreen> {
+class _SensorViewState extends State<SensorView> {
   final currentUser = FirebaseAuth.instance.currentUser!;
 
   @override

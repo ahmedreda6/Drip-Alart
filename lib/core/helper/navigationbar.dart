@@ -15,10 +15,10 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> screens = [
-    const HomeScreen(),
-    const SensorScreen(),
-    const AlertsScreen(),
-    const ProfileScreen(),
+    const HomeView(),
+    const SensorView(),
+    const AlertsView(),
+    const ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

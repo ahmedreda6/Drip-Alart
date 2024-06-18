@@ -31,20 +31,20 @@ class DripAlart extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        'loginScreen': (context) => const LoginScreen(),
-        'signUpScreen': (context) => const SignUpScreen(),
-        'WelcomeScreen': (context) => const WelcomeScreen(),
-        'HomeScreen': (context) => const HomeScreen(),
-        'SensorScreen': (context) => const SensorScreen(),
-        'ProfileScreen': (context) => const ProfileScreen(),
+        'loginScreen': (context) => const Loginview(),
+        'signUpScreen': (context) => const SignUpView(),
+        'WelcomeScreen': (context) => const Welcomeview(),
+        'HomeScreen': (context) => const HomeView(),
+        'SensorScreen': (context) => const SensorView(),
+        'ProfileScreen': (context) => const ProfileView(),
         'BottomNavBar': (context) => const BottomNavBar(),
-        'PreferencesScreen': (context) => const PreferencesScreen(),
-        'EditInformationScreen': (context) => const EditInformationScreen(),
-        'ForgotPasswordScreen': (context) => const ForgotPasswordScreen(),
-        'AlertDatailsScreen': (context) => const AlertDatailsScreen(),
-        AddMemberScreen.id: (context) => const AddMemberScreen(),
+        'PreferencesScreen': (context) => const PreferencesView(),
+        'EditInformationScreen': (context) => const EditInformationView(),
+        'ForgotPasswordScreen': (context) => const ForgotPasswordView(),
+        'AlertDatailsScreen': (context) => const AlertDatailsView(),
+        AddMemberView.id: (context) => const AddMemberView(),
       },
-      initialRoute: 'WelcomeScreen',
+      initialRoute: 'BottomNavBar',
     );
   }
 }

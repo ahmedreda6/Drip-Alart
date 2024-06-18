@@ -1,4 +1,4 @@
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:brain_box/core/helper/snakbar.dart';
 import 'package:brain_box/models/prams.dart';
@@ -9,20 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
-class SensorDitalsScreen extends StatefulWidget {
-  const SensorDitalsScreen({
+class SensorDitalsView extends StatefulWidget {
+  const SensorDitalsView({
     super.key,
     required this.pramsSensor,
   });
   final PramsSensor pramsSensor;
 
   @override
-  State<SensorDitalsScreen> createState() => _SensorDitalsScreenState();
+  State<SensorDitalsView> createState() => _SensorDitalsViewState();
 }
 
-class _SensorDitalsScreenState extends State<SensorDitalsScreen> {
+class _SensorDitalsViewState extends State<SensorDitalsView> {
   final humdidityControler = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
     ..loadRequest(

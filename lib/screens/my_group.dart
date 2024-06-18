@@ -3,8 +3,8 @@ import 'package:brain_box/widgets/add_email_bottom_sheet.dart';
 import 'package:brain_box/widgets/my_group_card.dart';
 import 'package:flutter/material.dart';
 
-class MyGroupScreen extends StatelessWidget {
-  const MyGroupScreen({super.key, required this.user});
+class MyGroupView extends StatelessWidget {
+  const MyGroupView({super.key, required this.user});
   static String id = 'My Group Screen';
   final UsrerModel user;
 

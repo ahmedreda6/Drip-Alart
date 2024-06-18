@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Loginview extends StatefulWidget {
+  const Loginview({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Loginview> createState() => _LoginviewState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginviewState extends State<Loginview> {
   bool isSigningIN = false;
   final FirebaseAuthService auth = FirebaseAuthService();
   TextEditingController EmailController = TextEditingController();
@@ -189,7 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (user != null) {
       showSnackBar(context, 'User is successfully signed in');
-      Navigator.pushNamed(context, AddMemberScreen.id);
+      Navigator.pushNamed(context, AddMemberView.id);
     } else {
       showSnackBar(context, 'some error occured');
     }
@@ -213,7 +213,7 @@ class _LoginScreenState extends State<LoginScreen> {
           accessToken: googleSignInAuthentication.accessToken,
         );
         await auth.auth.signInWithCredential(credential);
-        Navigator.pushNamed(context, AddMemberScreen.id);
+        Navigator.pushNamed(context, AddMemberView.id);
       }
     } catch (e) {
       showSnackBar(context, "some error occured $e");

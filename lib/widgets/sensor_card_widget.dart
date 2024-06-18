@@ -35,7 +35,7 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SensorDitalsScreen(
+                      builder: (context) => SensorDitalsView(
                         pramsSensor: PramsSensor(
                           uid: data[index]['uid'].toString(),
                           temperature: data[index]['temperature'],

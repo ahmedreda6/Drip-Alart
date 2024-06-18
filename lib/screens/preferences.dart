@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PreferencesScreen extends StatelessWidget {
-  const PreferencesScreen({super.key});
+class PreferencesView extends StatelessWidget {
+  const PreferencesView({super.key});
 
   @override
   Widget build(BuildContext context) {

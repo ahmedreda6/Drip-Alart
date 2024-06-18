@@ -11,14 +11,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class ProfileView extends StatefulWidget {
+  const ProfileView({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ProfileView> createState() => _ProfileViewState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileViewState extends State<ProfileView> {
   File? selectedIMage;
   final currentUser = FirebaseAuth.instance.currentUser!;
 
@@ -107,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MyGroupScreen(
+                            builder: (context) => MyGroupView(
                               user: user,
                             ),
                           ));
@@ -123,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const LoginScreen();
+                            return const Loginview();
                           },
                         ),
                       );

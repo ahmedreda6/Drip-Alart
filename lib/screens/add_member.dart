@@ -4,15 +4,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class AddMemberScreen extends StatefulWidget {
-  const AddMemberScreen({super.key});
+class AddMemberView extends StatefulWidget {
+  const AddMemberView({super.key});
   static String id = 'Add Member Screen';
 
   @override
-  State<AddMemberScreen> createState() => _AddMemberScreenState();
+  State<AddMemberView> createState() => _AddMemberViewState();
 }
 
-class _AddMemberScreenState extends State<AddMemberScreen> {
+class _AddMemberViewState extends State<AddMemberView> {
   TextEditingController emailController = TextEditingController();
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;

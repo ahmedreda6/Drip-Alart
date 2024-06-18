@@ -6,14 +6,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class EditInformationScreen extends StatefulWidget {
-  const EditInformationScreen({super.key});
+class EditInformationView extends StatefulWidget {
+  const EditInformationView({super.key});
 
   @override
-  State<EditInformationScreen> createState() => _EditInformationScreenState();
+  State<EditInformationView> createState() => _EditInformationViewState();
 }
 
-class _EditInformationScreenState extends State<EditInformationScreen> {
+class _EditInformationViewState extends State<EditInformationView> {
   final TextEditingController userName = TextEditingController();
   final TextEditingController email = TextEditingController();
   final firebaseFirestore = FirebaseFirestore.instance;

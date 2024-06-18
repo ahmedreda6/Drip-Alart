@@ -2,16 +2,16 @@ import 'package:brain_box/core/helper/navigationbar.dart';
 import 'package:brain_box/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
+class HomeView extends StatefulWidget {
+  const HomeView({
     super.key,
   });
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
