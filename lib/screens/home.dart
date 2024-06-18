@@ -1,4 +1,4 @@
-import 'package:brain_box/helper/navigationbar.dart';
+import 'package:brain_box/core/helper/navigationbar.dart';
 import 'package:brain_box/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 

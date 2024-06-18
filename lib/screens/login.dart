@@ -1,4 +1,4 @@
-import 'package:brain_box/helper/snakbar.dart';
+import 'package:brain_box/core/helper/snakbar.dart';
 import 'package:brain_box/screens/add_member.dart';
 import 'package:brain_box/user_auth/firebase_auth_services.dart';
 import 'package:brain_box/widgets/custom_button.dart';

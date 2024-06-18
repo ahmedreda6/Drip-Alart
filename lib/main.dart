@@ -1,5 +1,5 @@
 import 'package:brain_box/firebase_options.dart';
-import 'package:brain_box/helper/navigationbar.dart';
+import 'package:brain_box/core/helper/navigationbar.dart';
 import 'package:brain_box/screens/Profile.dart';
 import 'package:brain_box/screens/add_member.dart';
 import 'package:brain_box/screens/alert_datails.dart';
@@ -44,7 +44,7 @@ class DripAlart extends StatelessWidget {
         'AlertDatailsScreen': (context) => const AlertDatailsScreen(),
         AddMemberScreen.id: (context) => const AddMemberScreen(),
       },
-      initialRoute: 'BottomNavBar',
+      initialRoute: 'WelcomeScreen',
     );
   }
 }
