@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "544117708493",
+    "project_id": "drip-alart",
+    "storage_bucket": "drip-alart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544117708493:android:35a82f7b24036733e33b84",
+        "android_client_info": {
+          "package_name": "com.example.brain_box"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544117708493-aje02er4ov3krbbhv8gs5hgureb4rq72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8WuFfyMfqMvm2wa515pCYOUX53Kqlzk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544117708493-aje02er4ov3krbbhv8gs5hgureb4rq72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
