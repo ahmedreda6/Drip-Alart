@@ -17,9 +17,6 @@ class ProjectName extends StatelessWidget {
             fontFamily: 'Urbanist',
           ),
         ),
-        SizedBox(
-          width: 10,
-        ),
         Text(
           'Alart',
           style: TextStyle(

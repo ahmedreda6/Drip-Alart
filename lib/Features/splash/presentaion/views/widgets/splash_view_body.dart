@@ -1,4 +1,4 @@
-import 'package:brain_box/Features/splash/presentaion/views/widgets/sliding_text.dart';
+import 'package:brain_box/core/widgets/project_name.dart';
 import 'package:brain_box/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -17,8 +17,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     nivagateToHome();
-    animationController =
-        AnimationController(vsync: this, duration: Durations.extralong4);
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1500));
     animationController.forward();
   }
 
@@ -46,7 +46,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void nivagateToHome() {
     Future.delayed(
-      const Duration(milliseconds: 1500),
+      const Duration(seconds: 2),
       () {
         Navigator.push(
             context,
