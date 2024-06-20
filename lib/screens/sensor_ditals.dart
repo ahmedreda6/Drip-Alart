@@ -1,6 +1,6 @@
 // import 'dart:convert';
 
-import 'package:brain_box/core/helper/snakbar.dart';
+import 'package:brain_box/core/widgets/snakbar.dart';
 import 'package:brain_box/models/prams.dart';
 import 'package:brain_box/widgets/Custom_humidity_triangle.dart';
 import 'package:brain_box/widgets/custom_temperatue_triangle.dart';

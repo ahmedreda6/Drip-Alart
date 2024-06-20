@@ -1,4 +1,4 @@
-import 'package:brain_box/core/helper/snakbar.dart';
+import 'package:brain_box/core/widgets/snakbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

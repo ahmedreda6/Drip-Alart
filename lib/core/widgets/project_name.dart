@@ -1,3 +1,4 @@
+import 'package:brain_box/constant.dart';
 import 'package:flutter/material.dart';
 
 class ProjectName extends StatelessWidget {
@@ -14,7 +15,7 @@ class ProjectName extends StatelessWidget {
             color: Colors.blue,
             fontSize: 40,
             fontWeight: FontWeight.bold,
-            fontFamily: 'Urbanist',
+            fontFamily: kUrbanist,
           ),
         ),
         Text(
@@ -23,7 +24,7 @@ class ProjectName extends StatelessWidget {
             color: Colors.red,
             fontSize: 40,
             fontWeight: FontWeight.bold,
-            fontFamily: 'Urbanist',
+            fontFamily: kUrbanist,
           ),
         ),
       ],
