@@ -1,3 +1,4 @@
+import 'package:brain_box/Features/splash/presentaion/views/splash_view.dart';
 import 'package:brain_box/firebase_options.dart';
 import 'package:brain_box/core/helper/navigationbar.dart';
 import 'package:brain_box/screens/Profile.dart';
@@ -43,8 +44,10 @@ class DripAlart extends StatelessWidget {
         'ForgotPasswordScreen': (context) => const ForgotPasswordView(),
         'AlertDatailsScreen': (context) => const AlertDatailsView(),
         AddMemberView.id: (context) => const AddMemberView(),
+                'Splash': (context) => const SplashView(),
+
       },
-      initialRoute: 'BottomNavBar',
+      initialRoute: 'Splash',
     );
   }
 }

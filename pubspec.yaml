@@ -44,6 +44,7 @@ dependencies:
   google_sign_in: ^6.2.1
   http: ^1.2.1
   image_picker: ^1.0.7
+  lottie: ^3.1.2
   path: ^1.9.0
   sign_in_button: ^3.2.0
   uuid: ^4.4.0
@@ -66,6 +67,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/animation/
     - assets/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
