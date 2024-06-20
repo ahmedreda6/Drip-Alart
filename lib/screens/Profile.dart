@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/models/user_model.dart';
-import 'package:brain_box/screens/login.dart';
 import 'package:brain_box/screens/my_group.dart';
 import 'package:brain_box/widgets/logot_button.dart';
 import 'package:brain_box/widgets/my_group_button.dart';
@@ -9,6 +9,7 @@ import 'package:brain_box/widgets/preferences_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileView extends StatefulWidget {
@@ -95,7 +96,7 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'PreferencesScreen');
+                      GoRouter.of(context).push(AppRouter.kPreferencesView);
                     },
                     child: const PreferencesButton(),
                   ),
@@ -119,14 +120,7 @@ class _ProfileViewState extends State<ProfileView> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const Loginview();
-                          },
-                        ),
-                      );
+                      GoRouter.of(context).push(AppRouter.kLoginView);
                     },
                     child: const LogoutButton(),
                   ),

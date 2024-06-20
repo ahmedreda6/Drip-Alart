@@ -1,11 +1,12 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/core/widgets/snakbar.dart';
-import 'package:brain_box/screens/add_member.dart';
 import 'package:brain_box/user_auth/firebase_auth_services.dart';
 import 'package:brain_box/widgets/custom_button.dart';
 import 'package:brain_box/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Loginview extends StatefulWidget {
@@ -69,7 +70,7 @@ class _LoginviewState extends State<Loginview> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'ForgotPasswordScreen');
+                      GoRouter.of(context).push(AppRouter.kForgetPasswordView);
                     },
                     child: const Text(
                       'Forget Password ?',
@@ -103,7 +104,7 @@ class _LoginviewState extends State<Loginview> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'signUpScreen');
+                      GoRouter.of(context).push(AppRouter.kSignUpView);
                     },
                     child: const Text(
                       'Sign UP',
@@ -189,7 +190,7 @@ class _LoginviewState extends State<Loginview> {
 
     if (user != null) {
       showSnackBar(context, 'User is successfully signed in');
-      Navigator.pushNamed(context, AddMemberView.id);
+      GoRouter.of(context).push(AppRouter.kAddMembersView);
     } else {
       showSnackBar(context, 'some error occured');
     }
@@ -213,7 +214,7 @@ class _LoginviewState extends State<Loginview> {
           accessToken: googleSignInAuthentication.accessToken,
         );
         await auth.auth.signInWithCredential(credential);
-        Navigator.pushNamed(context, AddMemberView.id);
+        GoRouter.of(context).push(AppRouter.kAddMembersView);
       }
     } catch (e) {
       showSnackBar(context, "some error occured $e");

@@ -1,5 +1,7 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/widgets/welcome_custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Welcomeview extends StatelessWidget {
   const Welcomeview({super.key});
@@ -56,7 +58,7 @@ class Welcomeview extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'loginScreen');
+              GoRouter.of(context).push(AppRouter.kLoginView);
             },
             child: CustomButton.WelcomeCustomButton(
               title: 'Login',
@@ -68,7 +70,7 @@ class Welcomeview extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'signUpScreen');
+              GoRouter.of(context).push(AppRouter.kSignUpView);
             },
             child: CustomButton.WelcomeCustomButton(
               title: 'Sign Up',

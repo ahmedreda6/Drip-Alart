@@ -44,7 +44,7 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
   //   return json.decode(url.body['results']);
   // }
 
-  String dropdownvalue = 'Last month ';
+  // String dropdownvalue = 'Last month ';
 
   @override
   Widget build(BuildContext context) {

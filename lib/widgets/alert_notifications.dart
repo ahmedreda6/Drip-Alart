@@ -1,4 +1,6 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AlertNotifications extends StatelessWidget {
   const AlertNotifications({
@@ -10,7 +12,7 @@ class AlertNotifications extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, 'AlertDatailsScreen');
+        GoRouter.of(context).push(AppRouter.kAlartDetailsView);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),

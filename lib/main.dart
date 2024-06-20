@@ -1,4 +1,5 @@
 import 'package:brain_box/Features/splash/presentaion/views/splash_view.dart';
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/firebase_options.dart';
 import 'package:brain_box/core/helper/navigationbar.dart';
 import 'package:brain_box/screens/Profile.dart';
@@ -29,25 +30,26 @@ class DripAlart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routes: {
-        'loginScreen': (context) => const Loginview(),
-        'signUpScreen': (context) => const SignUpView(),
-        'WelcomeScreen': (context) => const Welcomeview(),
-        'HomeScreen': (context) => const HomeView(),
-        'SensorScreen': (context) => const SensorView(),
-        'ProfileScreen': (context) => const ProfileView(),
-        'BottomNavBar': (context) => const BottomNavBar(),
-        'PreferencesScreen': (context) => const PreferencesView(),
-        'EditInformationScreen': (context) => const EditInformationView(),
-        'ForgotPasswordScreen': (context) => const ForgotPasswordView(),
-        'AlertDatailsScreen': (context) => const AlertDatailsView(),
-        AddMemberView.id: (context) => const AddMemberView(),
-                'Splash': (context) => const SplashView(),
-
-      },
-      initialRoute: 'Splash',
+      routerConfig: AppRouter.router,
     );
   }
 }
+  // routes: {
+  //       'loginScreen': (context) => const Loginview(),
+  //       'signUpScreen': (context) => const SignUpView(),
+  //       'WelcomeScreen': (context) => const Welcomeview(),
+  //       'HomeScreen': (context) => const HomeView(),
+  //       'SensorScreen': (context) => const SensorView(),
+  //       'ProfileScreen': (context) => const ProfileView(),
+  //       'BottomNavBar': (context) => const BottomNavBar(),
+  //       'PreferencesScreen': (context) => const PreferencesView(),
+  //       'EditInformationScreen': (context) => const EditInformationView(),
+  //       'ForgotPasswordScreen': (context) => const ForgotPasswordView(),
+  //       'AlertDatailsScreen': (context) => const AlertDatailsView(),
+  //       AddMemberView.id: (context) => const AddMemberView(),
+  //               'Splash': (context) => const SplashView(),
+
+  //     },
+  //     initialRoute: 'Splash',

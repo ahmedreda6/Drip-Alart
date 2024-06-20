@@ -1,8 +1,10 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/models/user_model.dart';
 import 'package:brain_box/widgets/custom_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AddMemberView extends StatefulWidget {
   const AddMemberView({super.key});
@@ -117,8 +119,8 @@ class _AddMemberViewState extends State<AddMemberView> {
                 ),
                 GestureDetector(
                   onTap: () async {
-                    await _updateMethod().whenComplete(
-                        () => Navigator.pushNamed(context, 'BottomNavBar'));
+                    await _updateMethod().whenComplete(() =>
+                        GoRouter.of(context).push(AppRouter.kBottonNavBar));
                   },
                   child: CustomButton(title: 'Add'),
                 ),
@@ -130,7 +132,7 @@ class _AddMemberViewState extends State<AddMemberView> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'BottomNavBar');
+                        GoRouter.of(context).push(AppRouter.kBottonNavBar);
                       },
                       child: const Card(
                         child: Padding(

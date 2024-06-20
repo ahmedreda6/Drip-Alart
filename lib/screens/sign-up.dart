@@ -1,12 +1,13 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/core/widgets/snakbar.dart';
 import 'package:brain_box/models/user_model.dart';
-import 'package:brain_box/screens/add_member.dart';
 import 'package:brain_box/user_auth/firebase_auth_services.dart';
 import 'package:brain_box/widgets/custom_button.dart';
 import 'package:brain_box/widgets/custom_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUpView extends StatefulWidget {
@@ -180,7 +181,7 @@ class _SignUpViewState extends State<SignUpView> {
 
     if (user != null) {
       showSnackBar(context, 'User is successfully created');
-      Navigator.pushNamed(context, AddMemberView.id);
+      GoRouter.of(context).push(AppRouter.kAddMembersView);
     } else {
       showSnackBar(context, 'Some error happend');
     }
@@ -202,7 +203,7 @@ class _SignUpViewState extends State<SignUpView> {
           accessToken: googleSignInAuthentication.accessToken,
         );
         await auth.auth.signInWithCredential(credential);
-        Navigator.pushNamed(context, AddMemberView.id);
+        GoRouter.of(context).push(AppRouter.kAddMembersView);
       }
     } catch (e) {
       showSnackBar(context, "some error occured $e");
