@@ -12,25 +12,25 @@ class AlertContainerWidget extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Color(0xffF1F1F1),
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 15),
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 5),
-                Icon(
+                const SizedBox(width: 5),
+                const Icon(
                   Icons.error,
                   color: Colors.red,
                   size: 40,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'You have a new alert',
                       style: TextStyle(
                         fontSize: 14,
@@ -38,25 +38,16 @@ class AlertContainerWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      'Some of your sensors detect a dangours level of humidity ',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    Text(
-                      'tha means thers is a water leak you have to ',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    Text(
-                      'take an action before the water damage the infected place ',
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontFamily: 'Poppins',
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.83,
+                      child: const Text(
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                        'Some of your sensors detect a dangours level of humidity tha means thers is a water leak you have to take an action before the water damage the infected place',
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontFamily: 'Poppins',
+                        ),
                       ),
                     ),
                   ],
@@ -64,14 +55,14 @@ class AlertContainerWidget extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          CustomDitalsSensorCard(),
-          SizedBox(
+          const CustomDitalsSensorCard(),
+          const SizedBox(
             height: 20,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

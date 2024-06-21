@@ -20,21 +20,21 @@ class AlertNotifications extends StatelessWidget {
           decoration: const BoxDecoration(
             color: Color(0xffF1F1F1),
           ),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(vertical: 15),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
             child: Row(
               children: [
-                SizedBox(width: 5),
-                Icon(
+                const SizedBox(width: 5),
+                const Icon(
                   Icons.error,
                   color: Colors.red,
                   size: 40,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'You have a new alert',
                       style: TextStyle(
                         fontSize: 14,
@@ -42,18 +42,16 @@ class AlertNotifications extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      'one of your sensor may detect a water leak you need',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    Text(
-                      'to take an action immimmediately',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.83,
+                      child: const Text(
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        'one of your sensor may detect a water leak you need to take an action immimmediately',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: 'Poppins',
+                        ),
                       ),
                     ),
                   ],

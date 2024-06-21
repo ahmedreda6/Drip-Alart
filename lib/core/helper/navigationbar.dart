@@ -1,5 +1,5 @@
 import 'package:brain_box/screens/Profile.dart';
-import 'package:brain_box/screens/alerts.dart';
+import 'package:brain_box/Features/alerts/presentaion/views/alerts_view.dart';
 import 'package:brain_box/screens/home.dart';
 import 'package:brain_box/screens/sensor.dart';
 import 'package:brain_box/widgets/add_sensor_bottom_sheet.dart';

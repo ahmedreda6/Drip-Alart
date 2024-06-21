@@ -1,14 +1,14 @@
 import 'package:brain_box/widgets/alert_notifications.dart';
 import 'package:flutter/material.dart';
 
-class AlertsView extends StatefulWidget {
-  const AlertsView({super.key});
+class AlertsBodyView extends StatefulWidget {
+  const AlertsBodyView({super.key});
 
   @override
-  State<AlertsView> createState() => _AlertsViewState();
+  State<AlertsBodyView> createState() => _AlertsViewState();
 }
 
-class _AlertsViewState extends State<AlertsView> {
+class _AlertsViewState extends State<AlertsBodyView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
