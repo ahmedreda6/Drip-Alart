@@ -1,4 +1,4 @@
-import 'package:brain_box/widgets/alert_notifications.dart';
+import 'package:brain_box/Features/alerts/presentaion/views/widgets/alert_notifications.dart';
 import 'package:flutter/material.dart';
 
 class AlertsBodyView extends StatefulWidget {

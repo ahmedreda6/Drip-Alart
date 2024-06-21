@@ -2,7 +2,7 @@ import 'package:brain_box/Features/splash/presentaion/views/splash_view.dart';
 import 'package:brain_box/core/helper/navigationbar.dart';
 import 'package:brain_box/screens/Profile.dart';
 import 'package:brain_box/screens/add_member.dart';
-import 'package:brain_box/Features/alerts/presentaion/views/alert_datails.dart';
+import 'package:brain_box/Features/alerts/presentaion/views/alert_datails_view.dart';
 import 'package:brain_box/Features/alerts/presentaion/views/alerts_view.dart';
 import 'package:brain_box/screens/editinformation.dart';
 import 'package:brain_box/screens/forgot_password.dart';

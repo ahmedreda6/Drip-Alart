@@ -10,7 +10,6 @@ class AlertContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Color(0xffF1F1F1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
