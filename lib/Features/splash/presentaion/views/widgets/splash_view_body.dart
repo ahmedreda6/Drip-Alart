@@ -1,6 +1,8 @@
 import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/core/widgets/project_name.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
@@ -31,18 +33,21 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 150,
-        ),
-        Lottie.asset(
+    return Stack(children: [
+      Positioned(
+        left: -15,
+        top: 47,
+        child: Lottie.asset(
+          height: 450,
+
           controller: animationController,
           'assets/animation/Animation - 1718856600916.json',
         ),
-        const ProjectName(),
-      ],
-    );
+      ),
+      const Align(
+        child: ProjectName(),
+      ),
+    ]);
   }
 
   void nivagateToHome() {

@@ -34,14 +34,12 @@ class _AddSensorBottomSheetState extends State<AddSensorBottomSheet> {
               const SizedBox(
                 height: 32,
               ),
-
               const SizedBox(
                 height: 16,
               ),
               const CustomTextFormField(
                 hintText: 'Sensor Name',
               ),
-
               const SizedBox(
                 height: 32,
               ),
@@ -61,34 +59,8 @@ class _AddSensorBottomSheetState extends State<AddSensorBottomSheet> {
 
                   Navigator.pop(context);
                 },
-                child: CustomButton(title: 'Add'),
+                child: const CustomButton(title: 'Add'),
               ),
-
-              // BlocBuilder<AddNoteCubit, AddNoteState>(
-              //   builder: (context, state) {
-              //     return CustomBotton(
-              //       isLoaading: state is AddNoteLoading ? true : false,
-              //       ontap: () {
-              //         if (formkey.currentState!.validate()) {
-              //           formkey.currentState!.save();
-              //           var currentDate = DateTime.now();
-              //           var formattedCurrentDate =
-              //               DateFormat.yMd().format(currentDate);
-              //           var notemodel = NoteModel(
-              //             title: title!,
-              //             subtitle: subtitle!,
-              //             data: formattedCurrentDate,
-              //             color: Colors.amber.value,
-              //           );
-              //           BlocProvider.of<AddNoteCubit>(context).addNote(notemodel);
-              //         } else {
-              //           autovalidateMode = AutovalidateMode.always;
-              //           setState(() {});
-              //         }
-              //       },
-              //     );
-              //   },
-              // ),
               const SizedBox(
                 height: 16,
               ),

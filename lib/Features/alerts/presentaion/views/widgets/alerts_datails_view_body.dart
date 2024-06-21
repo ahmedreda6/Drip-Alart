@@ -1,4 +1,3 @@
-import 'package:brain_box/Features/alerts/data/email_noti/email_noti.dart';
 import 'package:brain_box/Features/alerts/presentaion/views/widgets/alart_container_widget.dart';
 import 'package:flutter/material.dart';
 

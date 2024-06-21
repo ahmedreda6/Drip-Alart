@@ -37,15 +37,6 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
         'https://thingspeak.com/channels/2540812/charts/1?width=auto&height=800&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15',
       ),
     );
-  // fetch() async {
-  //   http.Response url;
-  //   url = await http.get(
-  //       'https://thingspeak.com/channels/2540812/feed/last.json?&amp;offset=0&amp;location=true&amp;results=60');
-  //   return json.decode(url.body['results']);
-  // }
-
-  // String dropdownvalue = 'Last month ';
-
   @override
   Widget build(BuildContext context) {
     copy() {
