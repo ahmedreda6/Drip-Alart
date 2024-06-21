@@ -1,6 +1,8 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/core/widgets/project_name.dart';
 import 'package:brain_box/screens/welcome.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -48,11 +50,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Welcomeview(),
-            ));
+        GoRouter.of(context).push(AppRouter.kBottonNavBar);
       },
     );
   }

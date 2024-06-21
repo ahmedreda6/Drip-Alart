@@ -32,7 +32,7 @@ class _AlertsViewState extends State<AlertsView> {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 3,
+            itemCount: 5,
             itemBuilder: (context, index) => AlertNotifications(
               count: (index + 1).toString(),
             ),
