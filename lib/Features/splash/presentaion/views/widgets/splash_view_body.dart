@@ -1,6 +1,5 @@
 import 'package:brain_box/core/utils/app_router.dart';
 import 'package:brain_box/core/widgets/project_name.dart';
-import 'package:brain_box/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';

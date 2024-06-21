@@ -1,3 +1,4 @@
+import 'package:brain_box/Features/alerts/data/email_noti/email_noti.dart';
 import 'package:brain_box/Features/alerts/presentaion/views/widgets/alart_container_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -45,6 +46,13 @@ class _AlertDatailsViewState extends State<AlertDatailsViewBody> {
             height: 56,
           ),
           const AlertContainerWidget(),
+          // const SizedBox(
+          //   height: 50,
+          // ),
+          // const ElevatedButton(
+          //   onPressed: sendEmail,
+          //   child: Text('Email'),
+          // ),
         ],
       ),
     );

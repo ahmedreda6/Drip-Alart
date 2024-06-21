@@ -60,7 +60,7 @@ class Welcomeview extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).push(AppRouter.kLoginView);
             },
-            child: CustomButton.WelcomeCustomButton(
+            child: WelcomeCustomButton(
               title: 'Login',
               color: Colors.black,
             ),
@@ -72,7 +72,7 @@ class Welcomeview extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).push(AppRouter.kSignUpView);
             },
-            child: CustomButton.WelcomeCustomButton(
+            child: WelcomeCustomButton(
               title: 'Sign Up',
               color: const Color(0xffE3E3E3),
             ),
