@@ -47,9 +47,7 @@ class CustomDitalsSensorCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    width: 105,
-                  ),
+                  const Spacer(),
                   const Text(
                     '39%',
                     style: TextStyle(

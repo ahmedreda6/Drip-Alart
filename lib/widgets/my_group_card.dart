@@ -43,9 +43,7 @@ class MyGroupCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 10,
-            ),
+            const Spacer(),
             IconButton(
               onPressed: () {},
               icon: const Icon(FontAwesomeIcons.trash),

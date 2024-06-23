@@ -21,11 +21,11 @@ class _AlertDatailsViewState extends State<AlertDatailsViewBody> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                GestureDetector(
-                  onTap: () {
+                IconButton(
+                  onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Icon(Icons.arrow_back_ios),
+                  icon: const Icon(Icons.arrow_back_ios),
                 ),
                 const SizedBox(
                   width: 30,

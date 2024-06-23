@@ -1,4 +1,6 @@
+import 'package:brain_box/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PreferencesView extends StatelessWidget {
   const PreferencesView({super.key});
@@ -16,14 +18,14 @@ class PreferencesView extends StatelessWidget {
             Container(
               child: Row(
                 children: [
-                  GestureDetector(
-                    onTap: () {
+                  IconButton(
+                    onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Icon(Icons.arrow_back_ios),
+                    icon: const Icon(Icons.arrow_back_ios),
                   ),
                   const SizedBox(
-                    width: 100,
+                    width: 35,
                   ),
                   const Text(
                     'Preferences',
@@ -41,7 +43,7 @@ class PreferencesView extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'EditInformationScreen');
+                GoRouter.of(context).push(AppRouter.kEditInformationView);
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -95,7 +97,8 @@ class PreferencesView extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'ForgotPasswordScreen');
+                     GoRouter.of(context).push(AppRouter.kForgetPasswordView);
+
               },
               child: Container(
                 decoration: BoxDecoration(

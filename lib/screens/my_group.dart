@@ -39,14 +39,14 @@ class MyGroupView extends StatelessWidget {
             Container(
               child: Row(
                 children: [
-                  GestureDetector(
-                    onTap: () {
+                  IconButton(
+                    onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Icon(Icons.arrow_back_ios),
+                    icon: const Icon(Icons.arrow_back_ios),
                   ),
                   const SizedBox(
-                    width: 100,
+                    width: 35,
                   ),
                   const Text(
                     'My Group',

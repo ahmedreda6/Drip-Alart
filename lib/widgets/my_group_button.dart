@@ -24,7 +24,7 @@ class MyGroupButton extends StatelessWidget {
               color: Colors.black,
             ),
             SizedBox(
-              width: 60,
+              width: 25,
             ),
             Text(
               'My Group',
@@ -36,9 +36,7 @@ class MyGroupButton extends StatelessWidget {
                 fontFamily: 'Poppins',
               ),
             ),
-            SizedBox(
-              width: 120,
-            ),
+            Spacer(),
             Icon(
               size: 20,
               Icons.arrow_forward_ios,

@@ -48,23 +48,22 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: ListView(
           children: [
             const SizedBox(
               height: 39,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GestureDetector(
-                  onTap: () {
+                IconButton(
+                  onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Icon(Icons.arrow_back_ios),
+                  icon: const Icon(Icons.arrow_back_ios),
                 ),
                 const SizedBox(
-                  width: 30,
+                  width: 27,
                 ),
                 Image.asset('assets/Group 682.png'),
                 const SizedBox(
@@ -93,9 +92,7 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 100,
-                ),
+                const Spacer(),
                 IconButton(
                   onPressed: () {
                     showModalBottomSheet(
@@ -179,35 +176,35 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
             const SizedBox(
               height: 15,
             ),
-            const Row(
-              children: [
-                Icon(Icons.radio_button_checked),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'Last read :',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'data',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 40,
-            ),
+            // const Row(
+            //   children: [
+            //     Icon(Icons.radio_button_checked),
+            //     SizedBox(
+            //       width: 5,
+            //     ),
+            //     Text(
+            //       'Last read :',
+            //       style: TextStyle(
+            //         fontSize: 20,
+            //         fontFamily: 'Poppins',
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            //     ),
+            //     SizedBox(
+            //       width: 5,
+            //     ),
+            //     Text(
+            //       'data',
+            //       style: TextStyle(
+            //         fontSize: 20,
+            //         fontFamily: 'Poppins',
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // const SizedBox(
+            //   height: 40,
+            // ),
             const Row(
               children: [
                 Text(
@@ -239,9 +236,9 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
               height: 20,
             ),
             const Text(
-              'History ',
+              'History :',
               style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 32,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Poppins'),
             ),

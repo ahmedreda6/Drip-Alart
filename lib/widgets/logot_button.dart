@@ -24,7 +24,7 @@ class LogoutButton extends StatelessWidget {
                   color: Colors.black,
                 ),
                 SizedBox(
-                  width: 60,
+                  width: 25,
                 ),
                 Text(
                   'Logout',

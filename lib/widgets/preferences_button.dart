@@ -24,7 +24,7 @@ class PreferencesButton extends StatelessWidget {
               color: Colors.black,
             ),
             SizedBox(
-              width: 60,
+              width: 25,
             ),
             Text(
               'Preferences',
@@ -36,9 +36,7 @@ class PreferencesButton extends StatelessWidget {
                 fontFamily: 'Poppins',
               ),
             ),
-            SizedBox(
-              width: 100,
-            ),
+            Spacer(),
             Icon(
               size: 20,
               Icons.arrow_forward_ios,

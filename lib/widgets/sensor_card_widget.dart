@@ -90,9 +90,7 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                width: 105,
-                              ),
+                              const Spacer(),
                               Text(
                                 '${data[index]['humidity level']} %',
                                 style: const TextStyle(
