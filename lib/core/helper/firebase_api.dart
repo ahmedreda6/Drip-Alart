@@ -69,11 +69,13 @@ class RealTimeSensorData extends StatelessWidget {
       body: FirebaseAnimatedList(
           query: sensorData,
           itemBuilder: (context, snapshot, animation, index) {
-            return Column(
-              children: [
-                Text(snapshot.child('h').value.toString()),
-                Text(snapshot.child('t').value.toString()),
-              ],
+            return Card(
+              child: Column(
+                children: [
+                  Text(snapshot.child('h').value.toString()),
+                  Text(snapshot.child('t').value.toString()),
+                ],
+              ),
             );
           }),
     );
