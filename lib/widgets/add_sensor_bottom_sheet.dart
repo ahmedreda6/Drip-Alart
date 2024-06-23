@@ -1,6 +1,7 @@
 import 'package:brain_box/widgets/custom_button.dart';
 import 'package:brain_box/widgets/custom_text_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:uuid/uuid.dart';
@@ -17,6 +18,8 @@ class _AddSensorBottomSheetState extends State<AddSensorBottomSheet> {
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subtitle;
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,17 +47,9 @@ class _AddSensorBottomSheetState extends State<AddSensorBottomSheet> {
                 height: 32,
               ),
               GestureDetector(
-                onTap: () async {
-                  final uid = const Uuid().v4();
-                  final newdocument =
-                      FirebaseFirestore.instance.collection('sensors').doc(uid);
-                  final json = {
-                    'humidity level': '0',
-                    'risklevel': 0,
-                    'temperature': 0,
-                    'uid': uid,
-                  };
-                  await newdocument.set(json);
+                onTap: () {
+                  addSubcollection();
+
                   setState(() {});
 
                   Navigator.pop(context);
@@ -69,5 +64,21 @@ class _AddSensorBottomSheetState extends State<AddSensorBottomSheet> {
         ),
       ),
     );
+  }
+
+  Future<void> addSubcollection() async {
+    final uid = const Uuid().v4();
+    User? user = auth.currentUser;
+    if (user != null) {
+      DocumentReference userDocRef =
+          firestore.collection('users').doc(user.uid);
+
+      CollectionReference subcollectionRef =
+          userDocRef.collection('usersensors');
+
+      await subcollectionRef.doc(uid).set({
+        'uid': uid,
+      });
+    }
   }
 }
