@@ -47,7 +47,17 @@ class _AddSensorBottomSheetState extends State<AddSensorBottomSheet> {
                 height: 32,
               ),
               GestureDetector(
-                onTap: () {
+                onTap: () async {
+                  final uid = const Uuid().v4();
+                  final newdocument =
+                      FirebaseFirestore.instance.collection('sensors').doc(uid);
+                  final json = {
+                    'humidity level': '100',
+                    'risklevel': 0,
+                    'temperature': 0,
+                    'uid': uid,
+                  };
+                  await newdocument.set(json);
                   addSubcollection();
 
                   setState(() {});

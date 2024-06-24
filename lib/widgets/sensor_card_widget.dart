@@ -1,6 +1,8 @@
 import 'package:brain_box/models/prams.dart';
 import 'package:brain_box/screens/sensor_ditals.dart';
+import 'package:brain_box/widgets/custom_no_error_handling.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SensorCardWidget extends StatefulWidget {
@@ -15,14 +17,43 @@ class SensorCardWidget extends StatefulWidget {
 class _SensorCardWidgetState extends State<SensorCardWidget> {
   final double width = 208;
 
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  Stream<List<DocumentSnapshot>>? subcollectionStream;
+
+  @override
+  void initState() {
+    super.initState();
+    initSubcollectionListener();
+  }
+
+  void initSubcollectionListener() {
+    User? user = auth.currentUser;
+
+    if (user != null) {
+      CollectionReference subcollectionRef =
+          firestore.collection('users').doc(user.uid).collection('usersensors');
+
+      subcollectionStream = subcollectionRef.snapshots().map((snapshot) {
+        return snapshot.docs;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('sensors').snapshots(),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const CircularProgressIndicator();
-          }
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('sensors').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+          return const CustomNoSensoorHandling();
+        } else {
+          // QuerySnapshot<Object?> docs = snapshot.data!;
+
           final data = snapshot.data?.docs ?? [];
 
           return ListView.builder(
@@ -146,6 +177,8 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
               );
             },
           );
-        });
+        }
+      },
+    );
   }
 }
