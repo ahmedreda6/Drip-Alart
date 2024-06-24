@@ -45,13 +45,7 @@ class _AlertDatailsViewState extends State<AlertDatailsViewBody> {
             height: 56,
           ),
           const AlertContainerWidget(),
-          // const SizedBox(
-          //   height: 50,
-          // ),
-          // const ElevatedButton(
-          //   onPressed: sendEmail,
-          //   child: Text('Email'),
-          // ),
+          
         ],
       ),
     );
