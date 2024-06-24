@@ -11,31 +11,37 @@ class SensorView extends StatefulWidget {
 
 class _SensorViewState extends State<SensorView> {
   final currentUser = FirebaseAuth.instance.currentUser!;
+  Future<void> refresh() {
+    return Future.delayed(const Duration(seconds: 2));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: ListView(
-          children: const [
-            SizedBox(
-              height: 56,
-            ),
-            Text(
-              textAlign: TextAlign.start,
-              'My sensors',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.bold,
+      body: RefreshIndicator(
+        onRefresh: refresh,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: ListView(
+            children: const [
+              SizedBox(
+                height: 56,
               ),
-            ),
-            SizedBox(
-              height: 26,
-            ),
-            SensorCardWidget()
-          ],
+              Text(
+                textAlign: TextAlign.start,
+                'My sensors',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 26,
+              ),
+              SensorCardWidget()
+            ],
+          ),
         ),
       ),
     );
