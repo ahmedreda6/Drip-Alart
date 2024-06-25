@@ -5,7 +5,7 @@ class CustomTemperatureTriangle extends StatelessWidget {
     super.key,
     required this.temperature,
   });
-  final int temperature;
+  final dynamic temperature;
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -20,7 +20,7 @@ class CustomTemperatureTriangle extends StatelessWidget {
           Text(
             '$temperature%',
             style: const TextStyle(
-                fontSize: 45,
+                fontSize: 35,
                 fontFamily: 'Poppins',
                 color: Colors.black,
                 fontWeight: FontWeight.bold),

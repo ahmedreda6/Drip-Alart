@@ -1,8 +1,9 @@
-import 'package:brain_box/models/prams.dart';
+import 'package:brain_box/models/prams.dart'; // Check this import path
 import 'package:brain_box/screens/sensor_ditals.dart';
-import 'package:brain_box/widgets/custom_no_error_handling.dart';
+import 'package:brain_box/widgets/custom_no_error_handling.dart'; // Check this widget path
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class SensorCardWidget extends StatefulWidget {
@@ -13,6 +14,11 @@ class SensorCardWidget extends StatefulWidget {
 }
 
 class _SensorCardWidgetState extends State<SensorCardWidget> {
+  final DatabaseReference databaseRef =
+      FirebaseDatabase.instance.ref('f91f5120-d376-421e-adcf-4c445d440c99');
+  double? humidity;
+  double? temperature;
+
   final double width = 208;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -21,7 +27,28 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
   @override
   void initState() {
     super.initState();
+
+    databaseRef.onValue.listen((DatabaseEvent event) {
+      if (!mounted) return;
+
+      final data = Map<String, dynamic>.from(event.snapshot.value as Map);
+      setState(() {
+        humidity = _toDouble(data['h']);
+        temperature = _toDouble(data['t']);
+      });
+    });
     _initSubcollectionListener();
+  }
+
+  double? _toDouble(dynamic value) {
+    if (value is int) {
+      return value.toDouble();
+    } else if (value is double) {
+      return value;
+    } else if (value is String) {
+      return double.tryParse(value);
+    }
+    return null;
   }
 
   void _initSubcollectionListener() {
@@ -49,10 +76,9 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return const CustomNoSensoorHandling(); // Updated custom widget name
+          return const CustomNoErrorHandling(); // Updated custom widget name
         } else {
-          List<DocumentSnapshot> docs =
-              snapshot.data!; // Corrected type handling
+          List<DocumentSnapshot> docs = snapshot.data!;
 
           return ListView.builder(
             shrinkWrap: true,
@@ -67,19 +93,11 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SensorDitalsView(
+                      builder: (context) => SensorDetailsView(
                         // Corrected class name
                         pramsSensor: PramsSensor(
                           uid: data['uid'].toString(),
-                          temperature: data['temperature'] ??
-                              50, // Provide default value if null
                           index: index.toString(),
-                          humiditylevel:
-                              int.tryParse(data['humidity level'].toString()) ??
-                                  70, // Corrected parsing
-                          risklevel: data['risklevel'] ?? 50,
-                          left: ((width * (data['risklevel'] ?? 20)) /
-                              100), // Handle null values
                         ),
                       ),
                     ),
@@ -126,7 +144,7 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
                               ),
                               const Spacer(),
                               Text(
-                                '${data['humidity level']} %' ,
+                                '${humidity?.toStringAsFixed(1) ?? "Loading..."}%',
                                 style: const TextStyle(
                                   fontSize: 13,
                                   color: Colors.black,
@@ -158,8 +176,10 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
                                   ),
                                   Positioned(
                                     bottom: 10,
-                                    left: ((width * (data['risklevel'] ?? 20)) /
-                                        100), // Handle null values
+                                    left: (width *
+                                            calculateTrianglePosition(
+                                                humidity ?? 50)) /
+                                        100, // Handle null values and ensure correct calculation
                                     child: Image.asset(
                                       'assets/Polygon 1.png',
                                     ),
@@ -179,5 +199,22 @@ class _SensorCardWidgetState extends State<SensorCardWidget> {
         }
       },
     );
+  }
+
+  double calculateTrianglePosition(double humidity) {
+    double maxPosition = humidity; // Width of the background image
+    if (humidity < 25) {
+      // Position for green (0% to 25%)
+      return maxPosition * 0.125;
+    } else if (humidity < 50) {
+      // Position for green to yellow (25% to 50%)
+      return maxPosition * 0.375;
+    } else if (humidity < 75) {
+      // Position for yellow to orange (50% to 75%)
+      return maxPosition * 0.625;
+    } else {
+      // Position for orange to red (75% to 100%)
+      return maxPosition * 0.875;
+    }
   }
 }

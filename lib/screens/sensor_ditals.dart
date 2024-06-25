@@ -1,49 +1,82 @@
-// import 'dart:convert';
-
 import 'package:brain_box/core/widgets/snakbar.dart';
 import 'package:brain_box/models/prams.dart';
 import 'package:brain_box/widgets/Custom_humidity_triangle.dart';
 import 'package:brain_box/widgets/custom_temperatue_triangle.dart';
 import 'package:brain_box/widgets/edit_sensor_name.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-// import 'package:http/http.dart' as http;
 
-class SensorDitalsView extends StatefulWidget {
-  const SensorDitalsView({
+class SensorDetailsView extends StatefulWidget {
+  const SensorDetailsView({
     super.key,
     required this.pramsSensor,
   });
   final PramsSensor pramsSensor;
 
   @override
-  State<SensorDitalsView> createState() => _SensorDitalsViewState();
+  State<SensorDetailsView> createState() => _SensorDetailsViewState();
 }
 
-class _SensorDitalsViewState extends State<SensorDitalsView> {
-  final humdidityControler = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..loadRequest(
-      Uri.parse(
-        'https://thingspeak.com/channels/2540812/charts/2?width=auto&height=800&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15',
-      ),
-    );
-  final tempControler = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..loadRequest(
-      Uri.parse(
-        'https://thingspeak.com/channels/2540812/charts/1?width=auto&height=800&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15',
-      ),
-    );
+class _SensorDetailsViewState extends State<SensorDetailsView> {
+  late WebViewController humdidityControler;
+  late WebViewController tempControler;
+  final DatabaseReference databaseRef =
+      FirebaseDatabase.instance.ref('f91f5120-d376-421e-adcf-4c445d440c99');
+  double? humidity;
+  double? temperature;
+
+  @override
+  void initState() {
+    super.initState();
+
+    humdidityControler = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(
+        Uri.parse(
+          'https://thingspeak.com/channels/2540812/charts/2?width=auto&height=800&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15',
+        ),
+      );
+    tempControler = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(
+        Uri.parse(
+          'https://thingspeak.com/channels/2540812/charts/1?width=auto&height=800&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15',
+        ),
+      );
+
+    databaseRef.onValue.listen((DatabaseEvent event) {
+      if (!mounted) return;
+
+      final data = Map<String, dynamic>.from(event.snapshot.value as Map);
+      setState(() {
+        humidity = _toDouble(data['h']);
+        temperature = _toDouble(data['t']);
+      });
+    });
+  }
+
+  double? _toDouble(dynamic value) {
+    if (value is int) {
+      return value.toDouble();
+    } else if (value is double) {
+      return value;
+    } else if (value is String) {
+      return double.tryParse(value);
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
-    copy() {
+    void copy() {
       final value = ClipboardData(
         text: widget.pramsSensor.uid,
       );
       Clipboard.setData(value);
+      showSnackBar(context, 'Sensor ID Copied');
     }
 
     Future<void> refresh() {
@@ -80,7 +113,7 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Sensor (${widget.pramsSensor.index}) ',
+                        'Sensor (${widget.pramsSensor.index})',
                         style: const TextStyle(
                           fontSize: 15,
                           color: Colors.black,
@@ -124,7 +157,7 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Sensor Id :',
+                    'Sensor ID :',
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Poppins',
@@ -132,12 +165,9 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
                   ),
                   IconButton(
                     iconSize: 30,
-                    onPressed: () {
-                      copy();
-                      showSnackBar(context, 'Sensor Id Copeid');
-                    },
+                    onPressed: copy,
                     icon: const Icon(FontAwesomeIcons.copy),
-                  )
+                  ),
                 ],
               ),
               Text(
@@ -162,7 +192,8 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
                     Align(
                       alignment: Alignment.topLeft,
                       child: CustomHumidityTriangle(
-                        humiditylevel: widget.pramsSensor.humiditylevel,
+                        humiditylevel:
+                            ' ${humidity?.toStringAsFixed(1) ?? "Loading..."}',
                       ),
                     ),
                     Padding(
@@ -172,7 +203,8 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
                       child: Align(
                         alignment: Alignment.bottomRight,
                         child: CustomTemperatureTriangle(
-                          temperature: widget.pramsSensor.temperature,
+                          temperature:
+                              ' ${temperature?.toStringAsFixed(1) ?? "Loading..."}',
                         ),
                       ),
                     ),
@@ -182,35 +214,6 @@ class _SensorDitalsViewState extends State<SensorDitalsView> {
               const SizedBox(
                 height: 15,
               ),
-              // const Row(
-              //   children: [
-              //     Icon(Icons.radio_button_checked),
-              //     SizedBox(
-              //       width: 5,
-              //     ),
-              //     Text(
-              //       'Last read :',
-              //       style: TextStyle(
-              //         fontSize: 20,
-              //         fontFamily: 'Poppins',
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 5,
-              //     ),
-              //     Text(
-              //       'data',
-              //       style: TextStyle(
-              //         fontSize: 20,
-              //         fontFamily: 'Poppins',
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // const SizedBox(
-              //   height: 40,
-              // ),
               const Row(
                 children: [
                   Text(

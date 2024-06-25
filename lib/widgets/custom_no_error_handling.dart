@@ -1,8 +1,8 @@
 import 'package:brain_box/widgets/sensor_animation.dart';
 import 'package:flutter/material.dart';
 
-class CustomNoSensoorHandling extends StatelessWidget {
-  const CustomNoSensoorHandling({
+class CustomNoErrorHandling extends StatelessWidget {
+  const CustomNoErrorHandling({
     super.key,
   });
 

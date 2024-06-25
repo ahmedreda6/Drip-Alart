@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomHumidityTriangle extends StatelessWidget {
@@ -6,7 +5,7 @@ class CustomHumidityTriangle extends StatelessWidget {
     super.key,
     required this.humiditylevel,
   });
-  final int humiditylevel;
+  final dynamic humiditylevel;
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -18,7 +17,7 @@ class CustomHumidityTriangle extends StatelessWidget {
             height: 10,
           ),
           const Text(
-            "humiditylevel",
+            "Humidity level",
             style: TextStyle(
                 fontSize: 22,
                 fontFamily: 'Poppins',
@@ -31,7 +30,7 @@ class CustomHumidityTriangle extends StatelessWidget {
           Text(
             '$humiditylevel%',
             style: const TextStyle(
-                fontSize: 45,
+                fontSize: 35,
                 fontFamily: 'Poppins',
                 color: Colors.white,
                 fontWeight: FontWeight.bold),
